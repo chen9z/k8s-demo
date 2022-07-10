@@ -1,0 +1,10 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: n3k8s
+nodes:
+  - role: control-plane
+  - role: worker
+  - role: worker
+  - role: worker
+
+# kind create cluster --config kind-3node.yaml --image=kindest/node:v1.18.6

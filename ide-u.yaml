@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ide-u
+spec:
+  selector:
+    matchLabels:
+      app: ide-u
+  template:
+    metadata:
+      labels:
+        app: ide-u
+    spec:
+      containers:
+      - name: ide-u
+        image: jetbrains/projector-idea-u
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8887
