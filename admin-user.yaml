@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: admin-user
-  namespace: kubernetes-dashboard
+  namespace: kube-system
 
 ---
 
@@ -17,7 +17,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: admin-user
-  namespace: kubernetes-dashboard
+  namespace: kube-system
 
 
   # kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')

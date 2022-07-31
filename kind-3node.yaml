@@ -3,8 +3,21 @@ apiVersion: kind.x-k8s.io/v1alpha4
 name: n3k8s
 nodes:
   - role: control-plane
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 30000
+        listenAddress: "0.0.0.0"
+        protocol: TCP
+      - containerPort: 443
+        hostPort: 30003
+        listenAddress: "0.0.0.0"
+        protocol: TCP
+      - containerPort: 8080
+        hostPort: 30008
+        listenAddress: "0.0.0.0"
+        protocol: TCP
   - role: worker
   - role: worker
   - role: worker
 
-# kind create cluster --config kind-3node.yaml --image=kindest/node:v1.18.6
+# kind create cluster --config kind-3node.yaml --image=kindest/node:v1.18.20
