@@ -8,14 +8,11 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-    - host: ""
+    - host:
       http:
         paths:
           - pathType: Prefix
             path: /
             backend:
-              service:
-                name: traefik
-                port:
-                  number: 8080
-
+              serviceName: traefik
+              servicePort: 8080
